@@ -41,3 +41,5 @@ class Solution:
             currentValue = max(num, currentValue + num)
             maximum = max(currentValue, maximum)
         return maximum
+    
+# divide and conquor 
