@@ -14,4 +14,4 @@ class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         """ return the k most frequent element """
         numsCounter = Counter(nums) # Time complexity : O(n) Space Complexity: O(n)
-        return heapq.nlargest(k, numsCounter.keys(), key = lambda num: numsCounter[num]) # time Complexity can be O(n)
+        return heapq.nlargest(k, numsCounter.keys(), key = lambda num: numsCounter[num]) # time Complexity can be O(n log K)
