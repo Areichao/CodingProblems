@@ -1,11 +1,14 @@
 import Config
 
+# load .env file
+# DotenvParser.load()
+
 # Configure your database
 config :forum, Forum.Repo,
-  username: System.get_env("DB_USERNAME") || "postgres",
-  password: System.get_env("DB_PASSWORD") || "your_password",
-  hostname: System.get_env("DB_HOST") || "localhost",
-  database: System.get_env("DB_NAME") || "forum_dev",
+  username: System.get_env("DB_USERNAME"),
+  password: System.get_env("DB_PASSWORD"),
+  hostname: System.get_env("DB_HOST"),
+  database: System.get_env("DB_NAME"),
   port: String.to_integer(System.get_env("DB_PORT") || "5432"),
   stacktrace: true, # should only be enabled for dev not prod
   show_sensitive_data_on_connection_error: true, # should only be enabled for dev not prod

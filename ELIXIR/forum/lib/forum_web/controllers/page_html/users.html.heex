@@ -1,0 +1,7 @@
+<h1>Users page</h1>
+<ul>
+    <!-- % Is for accessing elixir code -->
+<%= for user <- @users do %>
+    <li><%= user.name %> - <%= user.email %></li>
+    <% end %>
+</ul>
