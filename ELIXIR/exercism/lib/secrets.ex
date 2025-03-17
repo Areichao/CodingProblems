@@ -18,27 +18,22 @@ defmodule Secrets do
     fn num -> num + secret end
   end
 
-  def secret_subtract(secret) do
-    # Please implement the secret_subtract/1 function
-  end
+  @spec secret_subtract(integer) :: (integer() -> integer())
+  def secret_subtract(secret), do: fn num -> num - secret end
 
-  def secret_multiply(secret) do
-    # Please implement the secret_multiply/1 function
-  end
+  def secret_multiply(secret), do: fn num -> num * secret end
 
-  def secret_divide(secret) do
-    # Please implement the secret_divide/1 function
-  end
+  def secret_divide(secret), do: fn num -> trunc(num / secret) end
 
-  def secret_and(secret) do
-    # Please implement the secret_and/1 function
-  end
+  def secret_and(secret), do: fn num -> Bitwise.band(num, secret) end
 
-  def secret_xor(secret) do
-    # Please implement the secret_xor/1 function
-  end
+  def secret_xor(secret), do: fn num -> Bitwise.bxor(num, secret) end
 
+  @doc """
+  return a function which takes one argument and applies to it the two functions passed in to secret_combine in order
+  """
+  @spec secret_combine((integer() -> integer()), (integer() -> integer())) :: (integer() -> integer())
   def secret_combine(secret_function1, secret_function2) do
-    # Please implement the secret_combine/2 function
-  end
+    fn num -> num |> secret_function1.() |> secret_function2.() end # pipe num into function 1, and result of function 1 into function 2
+ end
 end
