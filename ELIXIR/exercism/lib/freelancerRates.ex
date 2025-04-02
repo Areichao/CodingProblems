@@ -15,13 +15,26 @@ defmodule FreelancerRates do
 
   # * 1.0 for float conversion
   @spec apply_discount(integer(), integer()) :: float()
-  def apply_discount(before_discount, discount), do: 1.0 * before_discount * (1.0 - discount / 100.0)
+  def apply_discount(before_discount, discount),
+    do: 1.0 * before_discount * (1.0 - discount / 100.0)
 
   # trunc/1 to truncate it (turn it into an integer)
   @spec monthly_rate(integer(), float()) :: integer()
-  def monthly_rate(hourly_rate, discount), do: trunc(Float.ceil(FreelancerRates.apply_discount(FreelancerRates.daily_rate(hourly_rate) * 22, discount)))
+  def monthly_rate(hourly_rate, discount),
+    do:
+      trunc(
+        Float.ceil(
+          FreelancerRates.apply_discount(FreelancerRates.daily_rate(hourly_rate) * 22, discount)
+        )
+      )
 
   # float floor to one decimal space
   @spec days_in_budget(integer(), integer(), float()) :: integer()
-  def days_in_budget(budget, hourly_rate, discount), do: Float.floor(budget / FreelancerRates.apply_discount(FreelancerRates.daily_rate(hourly_rate), discount), 1)
+  def days_in_budget(budget, hourly_rate, discount),
+    do:
+      Float.floor(
+        budget /
+          FreelancerRates.apply_discount(FreelancerRates.daily_rate(hourly_rate), discount),
+        1
+      )
 end

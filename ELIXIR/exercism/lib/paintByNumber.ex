@@ -1,5 +1,5 @@
 defmodule PaintByNumber do
-  @moduledoc"""
+  @moduledoc """
   Bitstrings
 
   Working with binary data is an important concept in any language,
@@ -89,6 +89,7 @@ defmodule PaintByNumber do
 
   def get_first_pixel(picture, color_count) do
     num_bits = PaintByNumber.palette_bit_size(color_count)
+
     if picture == PaintByNumber.empty_picture() do
       nil
     else

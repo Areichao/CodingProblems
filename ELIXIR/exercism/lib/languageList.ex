@@ -25,22 +25,26 @@ defmodule LanguageList do
   @doc """
   add an element into the list
   """
-  def add(list, language), do: [language] ++ list # or just do [language | list]
+  # or just do [language | list]
+  def add(list, language), do: [language] ++ list
 
   @doc """
   return list without first element
   """
   def remove(list) do
-    case list do # split into head and tail
-      [_|tail] -> tail
-      [] -> [] # splitting causes an error in cases of empty lists, so have this as backup
+    # split into head and tail
+    case list do
+      [_ | tail] -> tail
+      # splitting causes an error in cases of empty lists, so have this as backup
+      [] -> []
     end
   end
 
   @doc """
   takes the first element in a list
   """
-  def first([head|_]), do: head # in this case, split variable at function parameter and return first element
+  # in this case, split variable at function parameter and return first element
+  def first([head | _]), do: head
 
   def count(list), do: length(list)
 

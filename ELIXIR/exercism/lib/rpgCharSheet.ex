@@ -1,5 +1,5 @@
 defmodule RPG.CharacterSheet do
-  @moduledoc"""
+  @moduledoc """
   IO module for IO inputs and outputs
 
   Output
@@ -37,7 +37,8 @@ defmodule RPG.CharacterSheet do
 
   def ask_class(), do: String.trim(IO.gets("What is your character's class?\n"))
 
-  def ask_level(), do: String.to_integer(String.trim(IO.gets("What is your character's level?\n")))
+  def ask_level(),
+    do: String.to_integer(String.trim(IO.gets("What is your character's level?\n")))
 
   @spec run() :: :ok
   def run() do

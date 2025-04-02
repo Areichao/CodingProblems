@@ -1,5 +1,5 @@
 defmodule HighSchoolSweetheart do
-  @moduledoc"""
+  @moduledoc """
   Strings stuff
 
   "Welcome to" <> " " <> "New York"
@@ -15,8 +15,11 @@ defmodule HighSchoolSweetheart do
   def initial(name), do: String.upcase(HighSchoolSweetheart.first_letter(name)) <> "."
 
   def initials(full_name) do
-    names = String.split(full_name) # splits on whitespace by default
-    HighSchoolSweetheart.initial(Enum.at(names, 0)) <> " " <> HighSchoolSweetheart.initial(Enum.at(names, 1))
+    # splits on whitespace by default
+    names = String.split(full_name)
+
+    HighSchoolSweetheart.initial(Enum.at(names, 0)) <>
+      " " <> HighSchoolSweetheart.initial(Enum.at(names, 1))
   end
 
   def pair(full_name1, full_name2) do

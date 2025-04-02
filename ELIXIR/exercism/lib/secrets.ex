@@ -32,8 +32,10 @@ defmodule Secrets do
   @doc """
   return a function which takes one argument and applies to it the two functions passed in to secret_combine in order
   """
-  @spec secret_combine((integer() -> integer()), (integer() -> integer())) :: (integer() -> integer())
+  @spec secret_combine((integer() -> integer()), (integer() -> integer())) :: (integer() ->
+                                                                                 integer())
   def secret_combine(secret_function1, secret_function2) do
-    fn num -> num |> secret_function1.() |> secret_function2.() end # pipe num into function 1, and result of function 1 into function 2
- end
+    # pipe num into function 1, and result of function 1 into function 2
+    fn num -> num |> secret_function1.() |> secret_function2.() end
+  end
 end

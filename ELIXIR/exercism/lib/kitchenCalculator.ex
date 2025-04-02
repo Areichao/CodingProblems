@@ -1,5 +1,5 @@
 defmodule KitchenCalculator do
-  @moduledoc"""
+  @moduledoc """
   Tuples - {}
   and pattern matching using =
   2 = 2
@@ -30,21 +30,22 @@ defmodule KitchenCalculator do
 
   def to_milliliter({unit, volume}) do
     case unit do
-      :cup -> {:milliliter, volume*240}
-      :fluid_ounce -> {:milliliter, volume*30}
-      :teaspoon -> {:milliliter, volume*5}
-      :tablespoon -> {:milliliter, volume*15}
+      :cup -> {:milliliter, volume * 240}
+      :fluid_ounce -> {:milliliter, volume * 30}
+      :teaspoon -> {:milliliter, volume * 5}
+      :tablespoon -> {:milliliter, volume * 15}
       _ -> {:milliliter, volume}
     end
   end
 
   def from_milliliter(volume_pair, unit) do
     {_, volume} = volume_pair
+
     case unit do
-      :cup -> {unit, volume/240}
-      :fluid_ounce -> {unit, volume/30}
-      :teaspoon -> {unit, volume/5}
-      :tablespoon -> {unit, volume/15}
+      :cup -> {unit, volume / 240}
+      :fluid_ounce -> {unit, volume / 30}
+      :teaspoon -> {unit, volume / 5}
+      :tablespoon -> {unit, volume / 15}
       _ -> {:milliliter, volume}
     end
   end

@@ -14,7 +14,8 @@ defmodule Exercism.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      mod: {Exercism, []}, # add this to pair with exercise.ex to run without specifying function call
+      # add this to pair with exercise.ex to run without specifying function call
+      mod: {Exercism, []},
       extra_applications: [:logger]
     ]
   end

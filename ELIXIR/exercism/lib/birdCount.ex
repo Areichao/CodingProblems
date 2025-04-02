@@ -16,8 +16,11 @@ defmodule BirdCount do
   @spec increment_day_count(list()) :: list()
   def increment_day_count(list) do
     today = BirdCount.today(list)
+
     case today do
-      nil -> [1]
+      nil ->
+        [1]
+
       _ ->
         [_head | tail] = list
         [today + 1 | tail]
@@ -28,8 +31,8 @@ defmodule BirdCount do
   # Recursive method
   @spec has_day_without_birds?(list()) :: boolean()
   def has_day_without_birds?([]), do: false
-  def has_day_without_birds?([0|_tail]), do: true
-  def has_day_without_birds?([_head|tail]), do: BirdCount.has_day_without_birds?(tail)
+  def has_day_without_birds?([0 | _tail]), do: true
+  def has_day_without_birds?([_head | tail]), do: BirdCount.has_day_without_birds?(tail)
 
   # Iterative: Enum.sum(list)
   # Recursive method
@@ -39,6 +42,6 @@ defmodule BirdCount do
 
   @spec busy_days(list()) :: integer()
   def busy_days([]), do: 0
-  def busy_days([head|tail]) when head >= 5, do: 1 + BirdCount.busy_days(tail)
-  def busy_days([_head|tail]), do: BirdCount.busy_days(tail)
+  def busy_days([head | tail]) when head >= 5, do: 1 + BirdCount.busy_days(tail)
+  def busy_days([_head | tail]), do: BirdCount.busy_days(tail)
 end

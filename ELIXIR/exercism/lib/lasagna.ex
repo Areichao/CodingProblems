@@ -10,7 +10,8 @@ defmodule Lasagna do
     40
   """
   @spec expected_minutes_in_oven() :: integer()
-  def expected_minutes_in_oven(), do: 40 # shortened one line functions, defp for private functions
+  # shortened one line functions, defp for private functions
+  def expected_minutes_in_oven(), do: 40
 
   # Please define the 'remaining_minutes_in_oven/1' function
   @doc """

@@ -1,5 +1,5 @@
 defmodule HighScore do
-  @moduledoc"""
+  @moduledoc """
   Maps
 
   # If the key is an atom:

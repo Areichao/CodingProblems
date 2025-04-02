@@ -1,5 +1,5 @@
 defmodule LibraryFees do
-  @moduledoc"""
+  @moduledoc """
   Date and Time module
 
   The Date module. A Date struct can be created with the ~D sigil.
@@ -44,13 +44,14 @@ defmodule LibraryFees do
 
   def monday?(datetime) do
     # day of week module is in Date so we convert. 1 represents monday
-    (NaiveDateTime.to_date(datetime) |> Date.day_of_week()) == 1
+    NaiveDateTime.to_date(datetime) |> Date.day_of_week() == 1
   end
 
   def calculate_late_fee(checkout, return, rate) do
     checkout = LibraryFees.datetime_from_string(checkout)
     return = LibraryFees.datetime_from_string(return)
     num_late_days = LibraryFees.days_late(LibraryFees.return_date(checkout), return)
+
     if LibraryFees.monday?(return) do
       div(num_late_days * rate, 2)
     else

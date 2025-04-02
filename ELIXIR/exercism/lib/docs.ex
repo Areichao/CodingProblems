@@ -1,9 +1,9 @@
 defmodule Form do
-  @moduledoc"""
+  @moduledoc """
   A collection of loosely related functions helpful for filling out various forms at the city office.
   """
 
-  @doc"""
+  @doc """
   Generates a string of a given length.
 
   This string can be used to fill out a form field that is supposed to have no value.

@@ -28,10 +28,12 @@ defmodule LogLevel do
   @spec alert_recipient(integer(), boolean()) :: atom() | boolean()
   def alert_recipient(level, legacy?) do
     label = LogLevel.to_label(level, legacy?)
+
     cond do
       label == :error or label == :fatal -> :ops
       label == :unknown and legacy? -> :dev1
-      label == :unknown and not legacy? -> :dev2 # checks one by one so not legacy? is not necessary
+      # checks one by one so not legacy? is not necessary
+      label == :unknown and not legacy? -> :dev2
       true -> false
     end
   end

@@ -1,5 +1,6 @@
 defmodule Exercism do
   use Application
+
   @moduledoc """
   Documentation for `Exercism`.
   """
@@ -18,7 +19,8 @@ defmodule Exercism do
     # code
     main()
     # execution
-    Supervisor.start_link([], strategy: :one_for_one) # works so that you can just run without specifying function
+    # works so that you can just run without specifying function
+    Supervisor.start_link([], strategy: :one_for_one)
   end
 
   def main do

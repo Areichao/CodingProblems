@@ -1,5 +1,5 @@
 defmodule BoutiqueInventory do
-  @moduledoc"""
+  @moduledoc """
   Enum module
   """
   def sort_by_price(inventory) do
@@ -13,7 +13,7 @@ defmodule BoutiqueInventory do
   def update_names(inventory, old_word, new_word) do
     Enum.map(inventory, fn item ->
       Map.put(item, :name, String.replace(item[:name], old_word, new_word))
-      end)
+    end)
   end
 
   # def increase_quantity(item, count) do

@@ -63,11 +63,14 @@ defmodule TakeANumber do
         state = state + 1
         send(sender_pid, state)
         loop(state)
+
       {:report_state, sender_pid} ->
         send(sender_pid, state)
         loop(state)
+
       :stop ->
         :ok
+
       {_} ->
         loop(state)
     end

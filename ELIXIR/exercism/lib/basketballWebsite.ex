@@ -23,11 +23,14 @@ defmodule BasketballWebsite do
   Note that nil itself implements the Access Behaviour and always returns nil for any key.
   """
   def extract_from_path(_data, ""), do: nil
+
   def extract_from_path(data, path) do
-    [head|tail] = String.split(path, ".")
+    [head | tail] = String.split(path, ".")
+
     case tail do
       [] ->
         data[head]
+
       _ ->
         if data[head] != nil do
           BasketballWebsite.extract_from_path(data[head], Enum.join(tail, "."))

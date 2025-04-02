@@ -14,8 +14,7 @@ defmodule GuessingGame do
   end
   """
 
-
-    @doc """
+  @doc """
     Compares a guess to the secret number and returns feedback.
 
     - Returns `"Correct"` if the guess is exactly the secret number.
@@ -25,10 +24,14 @@ defmodule GuessingGame do
   """
 
   @spec compare(integer(), integer() | any()) :: String.t()
-  def compare(_secret_number, guess \\ :no_guess) # defaulted to :no_guess if nothing is provided
+  # defaulted to :no_guess if nothing is provided
+  def compare(_secret_number, guess \\ :no_guess)
   def compare(_secret_number, guess) when not is_integer(guess), do: "Make a guess"
   def compare(secret_number, guess) when secret_number == guess, do: "Correct"
-  def compare(secret_number, guess) when guess - 1 == secret_number or guess + 1 == secret_number, do: "So close"
+
+  def compare(secret_number, guess) when guess - 1 == secret_number or guess + 1 == secret_number,
+    do: "So close"
+
   def compare(secret_number, guess) when secret_number > guess, do: "Too low"
   def compare(secret_number, guess) when secret_number < guess, do: "Too high"
 end
