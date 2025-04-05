@@ -21,8 +21,10 @@ defmodule Newsletter do
   """
   def read_emails(path) do
     File.read!(path)
-    |> String.split(~r/\r?\n/, trim: true) # handles newline for both Unix and Windows
-    |> Enum.filter(&(&1 != "")) # removes empty strings from the ends (safety)
+    # handles newline for both Unix and Windows
+    |> String.split(~r/\r?\n/, trim: true)
+    # removes empty strings from the ends (safety)
+    |> Enum.filter(&(&1 != ""))
   end
 
   def open_log(path) do
@@ -40,11 +42,13 @@ defmodule Newsletter do
   def send_newsletter(emails_path, log_path, send_fun) do
     emails_list = Newsletter.read_emails(emails_path)
     log_pid = Newsletter.open_log(log_path)
+
     Enum.each(emails_list, fn email ->
       if send_fun.(email) == :ok do
         Newsletter.log_sent_email(log_pid, email)
       end
     end)
+
     close_log(log_pid)
   end
 end

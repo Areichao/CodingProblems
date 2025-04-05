@@ -82,7 +82,11 @@ defmodule RemoteControlCar do
 
   def drive(remote_car = %RemoteControlCar{}) do
     if remote_car.battery_percentage > 0 do
-      updated_distance = %{remote_car | distance_driven_in_meters: remote_car.distance_driven_in_meters + 20}
+      updated_distance = %{
+        remote_car
+        | distance_driven_in_meters: remote_car.distance_driven_in_meters + 20
+      }
+
       %{updated_distance | battery_percentage: remote_car.battery_percentage - 1}
     else
       remote_car
