@@ -1,5 +1,5 @@
 defmodule BoutiqueSuggestions do
-  @moduledoc"""
+  @moduledoc """
   List Comprehensions
   Comprehensions provide a facility for transforming Enumerables easily and declaratively.
 
@@ -33,11 +33,12 @@ defmodule BoutiqueSuggestions do
   @spec get_combination([map()], [map()], keyword()) :: [{map(), map()}]
   def get_combinations(tops, bottoms, options \\ []) do
     max_price = Keyword.get(options, :maximum_price, 100.0)
+
     for top <- tops,
         bottom <- bottoms,
         top[:base_color] != bottom[:base_color],
         top[:price] + bottom[:price] <= max_price do
-        {top, bottom}
-      end
+      {top, bottom}
+    end
   end
 end
