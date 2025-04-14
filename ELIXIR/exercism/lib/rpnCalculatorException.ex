@@ -43,6 +43,42 @@ defmodule RPNCalculator.Exception do
   raise/2 raises a specific error by its module name, and accepts an attributes argument which is used to obtain the error with the appropriate message.
   """
   # Please implement DivisionByZeroError here.
+  defmodule DivisionByZeroError do
+    defexception message: "division by zero occurred"
+  end
 
   # Please implement StackUnderflowError here.
+  defmodule StackUnderflowError do
+    defexception message: "stack underflow occurred"
+
+    @impl true
+    def exception(value) do
+      case value do
+        [] ->
+          %StackUnderflowError{}
+        _ ->
+          %StackUnderflowError{message: "stack underflow occurred" <> ",context: " <> value}
+      end
+    end
+  end
+
+  @doc """
+  raises stack underflow when not enough numbers
+
+  raises division by 0 when divisor is 0
+
+  perform division otherwise
+  """
+  @spec divide(list()) :: float()
+  def divide(stack) do
+    case stack do
+      [a, b] ->
+        if a != 0 do
+          b / a
+        else
+          raise DivisionByZeroError
+        end
+      _ -> raise StackUnderflowError, "when dividing"
+    end
+  end
 end
