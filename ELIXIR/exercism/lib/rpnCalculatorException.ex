@@ -56,6 +56,7 @@ defmodule RPNCalculator.Exception do
       case value do
         [] ->
           %StackUnderflowError{}
+
         _ ->
           %StackUnderflowError{message: "stack underflow occurred" <> ",context: " <> value}
       end
@@ -78,7 +79,9 @@ defmodule RPNCalculator.Exception do
         else
           raise DivisionByZeroError
         end
-      _ -> raise StackUnderflowError, "when dividing"
+
+      _ ->
+        raise StackUnderflowError, "when dividing"
     end
   end
 end
