@@ -16,7 +16,8 @@ defmodule LucasNumbers do
   Streams implement the Enumerable protocol and are composable -- you can chain them together to create more complex functionality.
   """
   @spec generate(integer()) :: list(integer())
-  def generate(count) when not is_integer(count) or count < 1 do # when code is nawt good
+  # when code is nawt good
+  def generate(count) when not is_integer(count) or count < 1 do
     raise ArgumentError, message: "count must be specified as an integer >= 1"
   end
 
