@@ -48,7 +48,7 @@ if System.get_env("PHX_SERVER") do
   config :slax, SlaxWeb.Endpoint, server: true
 end
 
-# This runs for local dev
+# This runs for local dev -> in hindsight i should be putting this in dev.exs
 if config_env() == :dev do
   IO.inspect(env!("PG_USERNAME", :string), label: "Loaded USERNAME")
 
@@ -56,6 +56,15 @@ if config_env() == :dev do
     database: env!("DATABASE", :string!),
     username: env!("PG_USERNAME", :string),
     password: env!("PG_PASSWORD", :string),
+    hostname: env!("HOSTNAME", :string!)
+end
+
+# runs for test environment
+if config_env() == :test do
+  config :slax, Slax.Repo,
+    database: env!("TEST_DATABASE", :string!),
+    username: env!("PG_USERNAME", :string!),
+    password: env!("PG_PASSWORD", :string!),
     hostname: env!("HOSTNAME", :string!)
 end
 
