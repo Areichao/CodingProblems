@@ -51,12 +51,14 @@ defmodule SlaxWeb.ChatRoomLive do
 
   defp room_link(assigns) do
     ~H"""
-    <a
+    <%!-- <a --%>
+    <.link
       class={[
         "flex items-center h-8 text-sm pl-8 pr-3",
         (@active && "bg-slate-300") || "hover:bg-slate-300"
       ]}
-      href={~p"/rooms/#{@room}"}
+      <%!-- href={~p"/rooms/#{@room}"} --%>
+      navigate={~p"/rooms/#{@room}"}
     >
       <.icon name="hero-hashtag" class="h-4 w-4" />
       <span class={["ml-2 leading-none", @active && "font-bold"]}>
