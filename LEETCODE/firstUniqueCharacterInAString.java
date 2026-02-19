@@ -5,7 +5,7 @@ class Solution {
         if (s.length() == 1) return 0;
         int index = 1;
         while (index < s.length()){
-            if (s.charAt(index) != firstLetter) return index
+            if (s.charAt(index) != firstLetter) return index;
         }
     }
 }
