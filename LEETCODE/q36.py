@@ -1,5 +1,7 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
+        # time is O(N^2) but technically the board is only 9x9 so O(81)
+        # space holds n^2 for each list at max so 3 x n^2 which is n^2 but again, just 3 x 81 max
         rows = [set() for _ in range(9)]
         columns = [set() for _ in range(9)]
         squares = [set() for _ in range(9)]
