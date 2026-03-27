@@ -8,6 +8,7 @@ class Solution:
         """
         Do not return anything, modify head in-place instead.
         """
+        # Time O(n) space O(1)
         # first we want to find the middle point of the singly linked list. we do this by using a slow and fast pointer.
         # if the fast pointer hits null or the .next value of the fast pointer is null, the middle point is the slow pointer
         fast = head
@@ -34,7 +35,7 @@ class Solution:
         # once we reverse the second half of the list, we can merge one list into another by order
         l1 = head
         l2 = prev
-        
+
         while l2: 
             # store next values for both lists
             next1 = l1.next
