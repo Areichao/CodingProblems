@@ -1,5 +1,7 @@
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
+        # T: O(n) Space: O(1)
+
         # initialize length
         len_s1 = len(s1)
         len_s2 = len(s2)
