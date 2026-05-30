@@ -4,10 +4,12 @@ class RandomizedSet:
 
     def __init__(self):
         """ Initializes """
+        # O(1) space O(2n)
         self.values = []
         self.valueIndexes = {} # key: number, value: index
 
     def insert(self, val: int) -> bool:
+        # O(1)
         """ inserts val into set if not present, return true if item was not present, false otherwise """
         if val not in self.valueIndexes:
             self.values.append(val)
@@ -16,6 +18,7 @@ class RandomizedSet:
         return False
 
     def remove(self, val: int) -> bool:
+        #O(1)
         """ Removes an item val from the set if present. Returns true if the item was present, false otherwise. """
         # put value we are removing last and swap with whatever is at the end
         if val in self.valueIndexes:
@@ -32,6 +35,7 @@ class RandomizedSet:
         return False
         
     def getRandom(self) -> int:
+        #O(n)
         """ Returns a random element from the current set of elements """
         if not self.values:
             raise ValueError("List is empty!")
